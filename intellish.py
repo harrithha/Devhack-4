@@ -87,8 +87,10 @@ while True:
         translated_script = translate_to_command(command)
         print(f"Bash: {translated_script}")
         output, err_2 = run_command(translated_script)
-    
+
+
         if err_2:
+            print(Fore.RED + output + Fore.GREEN)
             print(Fore.RED + "ERROR: Sorry We couldn't understand your command." + Fore.GREEN)
             continue
     
