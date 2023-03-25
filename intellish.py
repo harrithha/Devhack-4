@@ -41,7 +41,7 @@ def print_help():
     print("  H:            Print this help message.")
     print("  Q:            Quit the terminal interface.")
     print("  C:            Clear the terminal window.")
-    print("  Goto <folder>: Navigate to a folder in the current directory.")
+    print("  Goto <folder>: Navigate to a folder in the current directory. (.. for parent folder)")
     print("")
     print("To execute a bash command, simply type it in and press enter.")
     print("If the command is not recognized as a bash command, the interface will attempt to translate it into one.")
@@ -59,6 +59,7 @@ print_intro()
 print()
     
 def print_quit():
+    print(Fore.BLUE)
     print("Bye!")
     return
 
@@ -72,6 +73,7 @@ while True:
         continue
     
     if command.lower() == "q": 
+        
         break
     
     if command.lower().startswith("goto"):
