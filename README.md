@@ -8,7 +8,7 @@
 3. Must have **pip** installed
 4. Python must be executable using: <br>
  ```
- python <file_name>'
+ python <file_name>
  ```
 5. Clone the repository, and go inside the directory.
 
