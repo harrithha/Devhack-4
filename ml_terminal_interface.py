@@ -1,4 +1,5 @@
 import os
+import re
 import sys
 import openai
 import colorama
@@ -42,7 +43,9 @@ def translate_to_command(command: str):
     answer = chat_completion.choices[0].message.content
     nw = answer.split("```")[0]
     messages.append({"role": "assistant", "content": nw})
-    return f"{nw}"
+    output = f"{nw}"
+    new_output = re.sub(r"(^`|`$)", "", output)
+    return =new_output
 
 
     
