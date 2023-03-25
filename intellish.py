@@ -7,7 +7,7 @@ from ml_terminal_interface import translate_to_command, run_command
 
 
 def print_heading():
-    print(Fore.BLUE)
+    print(Fore.BLUE, end="")
     print("--------------------------------------------------------------------------")
     print("|    _____ _   _ _______ ______ _      _      _____      _____ _    _    |")
     print("|   |_   _| \ | |__   __|  ____| |    | |    |_   _|    / ____| |  | |   |")
@@ -17,18 +17,18 @@ def print_heading():
     print("|   |_____|_| \_|  |_|  |______|______|______|_____|   |_____/|_|  |_|   |")
     print("|                                                                        |")
     print("--------------------------------------------------------------------------")
-    print(Fore.GREEN)
+    print(Fore.GREEN, end="")
     
 
 def print_intro():
-    print(Fore.BLUE)
+    print(Fore.BLUE, end="")
     print("--------------------")
     print("Enter H: for help")
     print("Enter Q: to Quit")
     print("Enter C: to Clear")
     print("Enter Goto <folder>: to go to folder (.. for parent folder))")
     print("--------------------")
-    print(Fore.GREEN)
+    print(Fore.GREEN, end="")
 
 
 def print_help():
@@ -71,7 +71,7 @@ while True:
     The main event loop of the program.
     """
     current_folder = os.path.basename(os.getcwd())
-    print(Fore.LIGHTGREEN_EX)
+    print(Fore.LIGHTGREEN_EX, end="")
     command = input(f"{current_folder} > " + Fore.RESET)
     
     # If command is 'h' show help
