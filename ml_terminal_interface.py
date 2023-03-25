@@ -10,6 +10,16 @@ openai.api_key = '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'
 messages = [
         {"role": "system", "content": "You are a helpful assistant."},
 ]
+message = "hi"
+messages.append(
+                {"role": "user", "content": message},
+        )
+chat_completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages
+)
+print(chat_completion.choices[0].message.content)
+
 
 def run_command(command):
     result = subprocess.run(command, stdout=subprocess.PIPE, shell=True, check=None, stderr=subprocess.PIPE)
@@ -34,6 +44,7 @@ def translate_to_command(command: str):
                 messages=messages
         )
     answer = chat_completion.choices[0].message.content
+    print(answer)
     nw = answer.split("```")[0]
     messages.append({"role": "assistant", "content": nw})
     return f"{nw}"
