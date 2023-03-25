@@ -7,7 +7,7 @@ if [ -d "$ne" ]; then
 else
     echo "Directory $ne does not exist."
     mkdir -p "$ne"
-    cp $(pwd)/{intellish.py,ml_terminal_interface.py} $ne/
+    cp *.py $ne/
 fi
 
 if alias intellish >/dev/null 2>&1; then 
