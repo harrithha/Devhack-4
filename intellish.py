@@ -59,6 +59,7 @@ print_intro()
 print()
     
 def print_quit():
+    print(Fore.BLUE)
     print("Bye!")
     return
 
