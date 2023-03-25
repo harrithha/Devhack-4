@@ -10,14 +10,14 @@ openai.api_key = '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'
 messages = [
         {"role": "system", "content": "You are a helpful assistant."},
 ]
-message = "hi"
-messages.append(
-                {"role": "user", "content": message},
-        )
-chat_completion = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=messages
-)
+# message = "hi"
+# messages.append(
+#                 {"role": "user", "content": message},
+#         )
+# chat_completion = openai.ChatCompletion.create(
+#         model="gpt-3.5-turbo",
+#         messages=messages
+# )
 
 
 def run_command(command):
