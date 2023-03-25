@@ -29,7 +29,22 @@ def print_intro():
     print("Enter Goto <folder>: to go to folder (.. for parent folder))")
     print("--------------------")
     print(Fore.GREEN)
-    
+
+
+def print_help():
+    print("Welcome to the ML Terminal Interface!")
+    print("This interface allows you to execute bash commands and navigate the file system.")
+    print("You can use the following commands:")
+    print("  H:            Print this help message.")
+    print("  Q:            Quit the terminal interface.")
+    print("  C:            Clear the terminal window.")
+    print("  Goto <folder>: Navigate to a folder in the current directory.")
+    print("")
+    print("To execute a bash command, simply type it in and press enter.")
+    print("If the command is not recognized as a bash command, the interface will attempt to translate it into one.")
+    print("If it cannot translate the command, it will print an error message.")
+    print("")
+    print("Note: This interface is not a full bash shell, and may not support all bash commands.")
 
 print_heading()
 print_intro()
@@ -46,7 +61,7 @@ while True:
     command = input(f"{current_folder}) ")
     
     if command.lower() == "h":
-        print("TODO: HELP")
+        print_help()
         continue
     
     if command.lower() == "q": 
