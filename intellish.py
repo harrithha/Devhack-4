@@ -28,6 +28,7 @@ def print_intro():
     print("Enter H: for help")
     print("Enter Q: to Quit")
     print("Enter C: to Clear")
+    print("Enter Goto <folder>: to go to folder")
     print("--------------------")
     print(Fore.GREEN)
     

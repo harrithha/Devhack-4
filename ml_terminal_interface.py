@@ -18,7 +18,6 @@ chat_completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages
 )
-print(chat_completion.choices[0].message.content)
 
 
 def run_command(command):
