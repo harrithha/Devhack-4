@@ -28,7 +28,7 @@ def run_command(command):
     """
     result = subprocess.run(command, stdout=subprocess.PIPE, shell=True, check=None, stderr=subprocess.PIPE)
 
-    if len(result.stderr.decode().strip()) > 0:
+    if result.returncode != 0:
         return result.stderr.decode().strip(), 1
     
     return result.stdout.decode().strip(), 0

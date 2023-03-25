@@ -8,6 +8,7 @@ else
     mkdir -p "$ne"
     cp *.py $ne
 fi
+pip install -r requirements.txt
 ALIAS="intellish"
 
 if grep -q "^alias $ALIAS=" ~/.bashrc; then 
