@@ -5,9 +5,15 @@ def translate_to_command(command: str):
     return "ls | grep s*"
 
 def run_command(command):
-    result = subprocess.run(command, stdout=subprocess.PIPE, shell=True)
-    output = result.stdout.decode().strip()
-    return output
+    result = subprocess.run(command, stdout=subprocess.PIPE, shell=True, check=None, stderr=subprocess.PIPE)
+
+    #Returning error incase of error
+    if len(result.stderr) > 0:
+        print("ERROR", end=" ")
+        return result.stderr.decode().strip()
     
-output = run_command("ls  i*")
+    #Returning output
+    return result.stdout.decode().strip()
+    
+output = run_command("ls i*")
 print(output)
