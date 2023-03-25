@@ -85,6 +85,7 @@ while True:
     
     if err:
         translated_script = translate_to_command(command)
+        print("Translated Script: " + translated_script)
         output, err_2 = run_command(translated_script)
 
 
