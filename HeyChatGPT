@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+#Import open AI OS and System Modules
+
+import openai,os,sys
+
+openai.api_key = os.environ['api_key']
+
+messages = [
+        {"role": "system", "content": "You are a helpful assistant."},
+]
+
+while True:
+    message = input("You: ")
+    message = "Give only the bash command to " + message + "without any other descriptive text"
+    if message:
+        messages.append(
+                {"role": "user", "content": message},
+        )
+        chat_completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=messages
+        )
+    answer = chat_completion.choices[0].message.content
+    nw = answer.split("````")[0]
+    print(f"ChatGPT: {nw}")
+    messages.append({"role": "assistant", "content": nw})
