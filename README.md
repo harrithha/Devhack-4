@@ -43,3 +43,6 @@ python intellish.py
 ```
 
 This will embed a terminal in which you can start running your own commands!
+
+
+## Video Demonstration Link: [Click Here](https://youtu.be/UP5i_w8x8pU)
