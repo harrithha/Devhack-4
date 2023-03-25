@@ -74,14 +74,16 @@ while True:
     print(Fore.LIGHTGREEN_EX)
     command = input(f"{current_folder} > " + Fore.RESET)
     
+    # If command is 'h' show help
     if command.lower() == "h":
         print_help()
         continue
     
+    # If command is 'q' quit terminal
     if command.lower() == "q": 
-        
         break
     
+    # If command has 'goto' change directory
     if command.lower().startswith("goto"):
         dir = ' '.join(command.split(" ")[1:])
         try:
@@ -90,23 +92,27 @@ while True:
             print(Fore.RED + "ERROR: No such folder exist"+Fore.GREEN)
         continue
     
+    
+    # If command is 'c' then clear the screen
     if command.lower() == "c":
         os.system('clear')
         continue
     
     output, err = run_command(command)
     
+    # If the normal command gives a error then try to translate it
     if err:
         translated_script = translate_to_command(command)
         print("Translated Script: " + translated_script)
         output, err_2 = run_command(translated_script)
 
-
+        # If the translated command also gives a error then print error
         if err_2:
             print(Fore.RED + output + Fore.GREEN)
             print(Fore.RED + "ERROR: Sorry We couldn't understand your command." + Fore.GREEN)
             continue
     
+    # If the command is valid then print the output
     print(Fore.RESET + f"{output}"+Fore.GREEN)
 
 
