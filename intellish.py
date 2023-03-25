@@ -53,10 +53,12 @@ while True:
         break
     
     if command.lower() == "c":
-        command = "clear"
+        os.system('cls')
+        continue
     
-    output = run_command(command)
-    print(output)
+    translated_script = translate_to_command(command)
+    print(f"Bash: {translated_script}")
+    output = run_command(translated_script)
     print(Fore.GREEN)
 
 print_quit()
