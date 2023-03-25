@@ -6,8 +6,6 @@ import colorama
 from colorama import Fore
 
 
-current_folder = os.path.basename(os.getcwd())
-
 def print_heading():
     print(Fore.BLUE)
     print("--------------------------------------------------------------------------")
@@ -44,6 +42,7 @@ def print_quit():
     return
 
 while True:
+    current_folder = os.path.basename(os.getcwd())
     command = input(f"{current_folder}) ")
     
     if command.lower() == "h":
@@ -54,15 +53,24 @@ while True:
         break
     
     if command.lower().startswith("goto"):
-        
+        # changing dir
+        dir = ' '.join(command.split(" ")[1:])
+        try:
+            os.chdir(dir)
+        except:
+            print(Fore.RED)
+            print("ERROR: No such folder exist")
+            print(Fore.GREEN)
+        continue
     
     if command.lower() == "c":
         os.system('clear')
         continue
     
-    translated_script = translate_to_command(command)
-    print(f"Bash: {translated_script}")
-    output = run_command(translated_script)
+    # translated_script = translate_to_command(command)
+    # print(f"Bash: {translated_script}")
+    # output = run_command(translated_script)
+    output = run_command(command)
     print(f"{output}")
     print(Fore.GREEN)
 
