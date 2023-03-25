@@ -22,10 +22,10 @@ chat_completion = openai.ChatCompletion.create(
 
 
 def run_command(command):
-        """
-        Runs a bash command and returns the output.
-        Throws an error if the command is not valid.
-        """
+    """
+    Runs a bash command and returns the output.
+    Throws an error if the command is not valid.
+    """
     result = subprocess.run(command, stdout=subprocess.PIPE, shell=True, check=None, stderr=subprocess.PIPE)
 
     if len(result.stderr.decode().strip()) > 0:
@@ -34,10 +34,10 @@ def run_command(command):
     return result.stdout.decode().strip(), 0
 
 def translate_to_command(command: str):
-        """
-        Translating human reaadable command to bash command.
-        This uses Large Language Model. (GPT)
-        """
+    """
+    Translating human reaadable command to bash command.
+    This uses Large Language Model. (GPT)
+    """
     message = command
     message = "Give only the bash command to " + message + "without any other descriptive text"
     if message:
