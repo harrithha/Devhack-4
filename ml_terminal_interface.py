@@ -1,4 +1,6 @@
 import subprocess
+import colorama
+from colorama import Fore
 
 def translate_to_command(command: str):
     command = "files starting with s"
@@ -9,7 +11,7 @@ def run_command(command):
 
     #Returning error incase of error
     if len(result.stderr) > 0:
-        print("ERROR", end=" ")
+        print(Fore.RED + "ERROR: ", end=" ")
         return result.stderr.decode().strip()
     
     #Returning output
