@@ -1,9 +1,9 @@
-import subprocess
-import colorama
-from colorama import Fore
-import openai
 import os
 import sys
+import openai
+import colorama
+import subprocess
+from colorama import Fore
 
 openai.api_key = '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'
 
