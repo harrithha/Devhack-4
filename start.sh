@@ -8,9 +8,10 @@ else
     mkdir -p "$ne"
     cp *.py $ne
 fi
+ALIAS="intellish"
 
-if alias intellish >/dev/null 2>&1; then 
-    echo "alias exists"
+if grep -q "^alias $ALIAS=" ~/.bashrc; then 
+    echo "alias already exists"
 else 
     echo "alias intellish='python $ne/intellish.py'" >> ~/.bashrc
     exec bash
