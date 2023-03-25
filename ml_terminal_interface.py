@@ -45,7 +45,7 @@ def translate_to_command(command: str):
     messages.append({"role": "assistant", "content": nw})
     output = f"{nw}"
     new_output = re.sub(r"(^`|`$)", "", output)
-    return =new_output
+    return new_output
 
 
     

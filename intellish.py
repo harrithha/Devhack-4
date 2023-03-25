@@ -32,7 +32,7 @@ def print_intro():
 
 
 def print_help():
-    print(Fore.BLUE)
+    print(Fore.BLUE, end="")
     print("---------------------------------------------------------------------------------------------------------")
     print()
     print("Welcome to the ML Terminal Interface!")
@@ -50,7 +50,7 @@ def print_help():
     print("Note: This interface is not a full bash shell, and may not support all bash commands.")
     print()
     print("----------------------------------------------------------------------------------------------------------")
-    print(Fore.GREEN)
+    print(Fore.GREEN, end="")
 
 print_heading()
 print_intro()
@@ -59,7 +59,7 @@ print_intro()
 print()
     
 def print_quit():
-    print(Fore.BLUE)
+    print(Fore.BLUE, end="")
     print("Bye!")
     return
 
@@ -81,9 +81,7 @@ while True:
         try:
             os.chdir(dir)
         except:
-            print(Fore.RED)
-            print("ERROR: No such folder exist")
-            print(Fore.GREEN)
+            print(Fore.RED + "ERROR: No such folder exist"+Fore.GREEN)
         continue
     
     if command.lower() == "c":
@@ -103,8 +101,7 @@ while True:
             print(Fore.RED + "ERROR: Sorry We couldn't understand your command." + Fore.GREEN)
             continue
     
-    print(Fore.RESET)
-    print(f"{output}")
-    print(Fore.GREEN)
+    print(Fore.RESET + f"{output}"+Fore.GREEN)
+
 
 print_quit()

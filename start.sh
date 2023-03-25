@@ -1,5 +1,5 @@
 #!/bin/bash
-shopt -s expand_aliases
+# shopt -s expand_aliases
 ne=~/.intellish
 echo $ne
 if [ -d "$ne" ]; then
@@ -10,7 +10,7 @@ else
     cp $(pwd)/{intellish.py,ml_terminal_interface.py} $ne/
 fi
 
-if alias your_alias_name >/dev/null 2>&1; then 
+if alias intellish >/dev/null 2>&1; then 
     echo "alias exists"
 else 
     echo "alias intellish='python $(pwd)/intellish.py'" >> ~/.bashrc
