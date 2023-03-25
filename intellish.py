@@ -53,8 +53,11 @@ while True:
     if command.lower() == "q": 
         break
     
+    if command.lower().startswith("goto"):
+        
+    
     if command.lower() == "c":
-        os.system('cls')
+        os.system('clear')
         continue
     
     translated_script = translate_to_command(command)
