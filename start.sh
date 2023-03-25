@@ -1,5 +1,5 @@
 #!/bin/bash
-# shopt -s expand_aliases
+shopt -s expand_aliases
 ne=~/.intellish
 echo $ne
 if [ -d "$ne" ]; then
