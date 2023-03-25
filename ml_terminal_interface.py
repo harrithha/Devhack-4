@@ -23,12 +23,10 @@ messages = [
 def run_command(command):
     result = subprocess.run(command, stdout=subprocess.PIPE, shell=True, check=None, stderr=subprocess.PIPE)
 
-    #Returning error incase of error
     if len(result.stderr) > 0:
         print(Fore.RED + "ERROR: ", end=" ")
         return result.stderr.decode().strip(), 1
     
-    #Returning output
     return result.stdout.decode().strip(), 0
 
 def translate_to_command(command: str):

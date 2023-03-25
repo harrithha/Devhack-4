@@ -67,6 +67,7 @@ while True:
         continue
     
     output, err = run_command(command)
+    
     if err:
         translated_script = translate_to_command(command)
         print(f"Bash: {translated_script}")
