@@ -32,6 +32,9 @@ def print_intro():
 
 
 def print_help():
+    print(Fore.BLUE)
+    print("---------------------------------------------------------------------------------------------------------")
+    print()
     print("Welcome to the ML Terminal Interface!")
     print("This interface allows you to execute bash commands and navigate the file system.")
     print("You can use the following commands:")
@@ -45,6 +48,9 @@ def print_help():
     print("If it cannot translate the command, it will print an error message.")
     print("")
     print("Note: This interface is not a full bash shell, and may not support all bash commands.")
+    print()
+    print("----------------------------------------------------------------------------------------------------------")
+    print(Fore.GREEN)
 
 print_heading()
 print_intro()
@@ -58,7 +64,8 @@ def print_quit():
 
 while True:
     current_folder = os.path.basename(os.getcwd())
-    command = input(f"{current_folder}) ")
+    print(Fore.LIGHTGREEN_EX)
+    command = input(f"{current_folder} > " + Fore.RESET)
     
     if command.lower() == "h":
         print_help()
@@ -94,7 +101,7 @@ while True:
             print(Fore.RED + "ERROR: Sorry We couldn't understand your command." + Fore.GREEN)
             continue
     
-    
+    print(Fore.RESET)
     print(f"{output}")
     print(Fore.GREEN)
 
