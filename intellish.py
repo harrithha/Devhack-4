@@ -1,9 +1,9 @@
 import os
+import colorama
 import subprocess
 from time import sleep
-from ml_terminal_interface import translate_to_command, run_command
-import colorama
 from colorama import Fore
+from ml_terminal_interface import translate_to_command, run_command
 
 
 def print_heading():
@@ -53,7 +53,6 @@ while True:
         break
     
     if command.lower().startswith("goto"):
-        # changing dir
         dir = ' '.join(command.split(" ")[1:])
         try:
             os.chdir(dir)
@@ -67,10 +66,17 @@ while True:
         os.system('clear')
         continue
     
-    # translated_script = translate_to_command(command)
-    # print(f"Bash: {translated_script}")
-    # output = run_command(translated_script)
-    output = run_command(command)
+    output, err = run_command(command)
+    if err:
+        translated_script = translate_to_command(command)
+        print(f"Bash: {translated_script}")
+        output, err_2 = run_command(translated_script)
+    
+        if err_2:
+            print(Fore.RED + "ERROR: Sorry We couldn't understand your command." + Fore.GREEN)
+            continue
+    
+    
     print(f"{output}")
     print(Fore.GREEN)
 
