@@ -59,11 +59,17 @@ print_intro()
 print()
     
 def print_quit():
+    """
+    Prints a goodbye message and returns.
+    """
     print(Fore.BLUE, end="")
     print("Bye!")
     return
 
 while True:
+    """
+    The main event loop of the program.
+    """
     current_folder = os.path.basename(os.getcwd())
     print(Fore.LIGHTGREEN_EX)
     command = input(f"{current_folder} > " + Fore.RESET)
