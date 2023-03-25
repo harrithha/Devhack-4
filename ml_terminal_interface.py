@@ -40,7 +40,6 @@ def translate_to_command(command: str):
                 messages=messages
         )
     answer = chat_completion.choices[0].message.content
-    print(answer)
     nw = answer.split("```")[0]
     messages.append({"role": "assistant", "content": nw})
     return f"{nw}"
