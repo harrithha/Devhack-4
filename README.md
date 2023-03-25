@@ -4,8 +4,14 @@
 ## Team Coding_Crofts
 
 
-To run the bot just following command:
+To run the bot:
+1. Install requirements
 ```
+pip install -r requirements.txt
+```
+
+2. Run intellish.py
+``
 python intellish.py
 ```
 
