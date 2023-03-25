@@ -26,10 +26,10 @@ def run_command(command):
     #Returning error incase of error
     if len(result.stderr) > 0:
         print(Fore.RED + "ERROR: ", end=" ")
-        return result.stderr.decode().strip()
+        return result.stderr.decode().strip(), 1
     
     #Returning output
-    return result.stdout.decode().strip()
+    return result.stdout.decode().strip(), 0
 
 def translate_to_command(command: str):
     message = command

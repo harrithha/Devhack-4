@@ -28,7 +28,7 @@ def print_intro():
     print("Enter H: for help")
     print("Enter Q: to Quit")
     print("Enter C: to Clear")
-    print("Enter Goto <folder>: to go to folder")
+    print("Enter Goto <folder>: to go to folder (.. for parent folder))")
     print("--------------------")
     print(Fore.GREEN)
     
@@ -54,15 +54,22 @@ while True:
         break
     
     if command.lower().startswith("goto"):
-        
+        pass
     
     if command.lower() == "c":
         os.system('clear')
         continue
     
-    translated_script = translate_to_command(command)
-    print(f"Bash: {translated_script}")
-    output = run_command(translated_script)
+    output, err = run_command(command)
+    if err:
+        translated_script = translate_to_command(command)
+        print(f"Bash: {translated_script}")
+        output, err_2 = run_command(translated_script)
+    
+        if err_2:
+            print(Fore.RED + "ERROR: Sorry We couldn't understand your command." + Fore.GREEN)
+            continue
+    
     print(f"{output}")
     print(Fore.GREEN)
 
