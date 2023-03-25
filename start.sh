@@ -9,7 +9,7 @@ else
     mkdir -p "$ne"
     cp *.py $ne/
 fi
-
+pip install -r requirements.txt
 if alias intellish >/dev/null 2>&1; then 
     echo "alias exists"
 else 
