@@ -73,6 +73,7 @@ while True:
         continue
     
     if command.lower() == "q": 
+        
         break
     
     if command.lower().startswith("goto"):
